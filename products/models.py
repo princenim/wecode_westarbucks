@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 
 #데이타베이스 안의 테이블 만들기
@@ -40,4 +41,18 @@ class Drink(models.Model):
         db_table = 'drink' # 테이블 이름
 
 
+# 알러지드링크 
+class Allergydrink(models.Model):
+    allergy = models.ForeignKey('Allergy',on_delete=models.CASCADE) #allergy_id
+    drink = models.ForeignKey('Drink', on_delete=models.CASCADE) # drink_id
     
+    class Meta:
+        db_table =  'allergydrink' # 테이블 이름
+
+#이미지
+class Image(models.Model):
+    image_url =  models.CharField(max_length=300)
+    drink = models.ForeignKey('Drink',on_delete=CASCADE) #drink_id
+
+    class Meta:
+        db_table = 'image' # 테이블 이름

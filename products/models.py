@@ -22,7 +22,6 @@ class Product(models.Model):
     class Meta:
             db_table = 'products' # 테이블 이름
 
-
 # ------------------------------------------
 
 # 알러지
@@ -34,7 +33,7 @@ class Allergy(models.Model):
 
 # 드링크
 class Drink(models.Model):
-    name =  models.CharField(max_length=100)
+    name =  models.CharField(max_length=100)git
     category = models.ForeignKey('Category', on_delete=models.CASCADE) #category_id
 
     class Meta:
@@ -56,3 +55,11 @@ class Image(models.Model):
 
     class Meta:
         db_table = 'image' # 테이블 이름
+
+#영양소
+class Nutritions(models.Model):
+    one_serving_kca = models.CharField(max_length=100)
+    
+    sodium_mg = models.CharField(max_length=100)
+    saturated_fat_g = models.CharField(max_length=100)
+    
